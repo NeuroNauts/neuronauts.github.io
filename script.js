@@ -1003,6 +1003,111 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function setupVideoAutoplay({ scope = document } = {}) {
+        const root = scope instanceof Element ? scope : document;
+        const video = root.querySelector('[data-video-autoplay]');
+
+        if (!video) {
+            return;
+        }
+
+        if (typeof video._autoplayCleanup === 'function') {
+            video._autoplayCleanup();
+        }
+
+        if (video.dataset.autoplayManaged === 'true') {
+            return;
+        }
+
+        video.dataset.autoplayManaged = 'true';
+        video.playsInline = true;
+
+        if (!('IntersectionObserver' in window) || shouldReduceMotion()) {
+            return;
+        }
+
+        const resetOnExit = video.dataset.resetOnExit !== 'false';
+
+        const pauseVideo = (reset = false) => {
+            if (!video.paused) {
+                video.pause();
+            }
+            if (reset && resetOnExit) {
+                video.currentTime = 0;
+            }
+        };
+
+        const tryPlay = () => {
+            if (!video.paused) {
+                return;
+            }
+            const playPromise = video.play();
+            if (playPromise && typeof playPromise.catch === 'function') {
+                playPromise.catch(() => {
+                    video.muted = true;
+                    video.play().catch(() => {});
+                });
+            }
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.target !== video) {
+                        return;
+                    }
+                    if (entry.isIntersecting) {
+                        tryPlay();
+                    } else {
+                        pauseVideo(true);
+                    }
+                });
+            },
+            {
+                threshold: 0.6,
+                rootMargin: '0px 0px -10%',
+            },
+        );
+
+        observer.observe(video);
+
+        const handleVisibilityChange = () => {
+            if (document.hidden) {
+                pauseVideo();
+            }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        const handleVideoEnded = () => {
+            if (resetOnExit) {
+                video.currentTime = 0;
+            }
+        };
+
+        video.addEventListener('ended', handleVideoEnded);
+
+        let cleanupCalled = false;
+        const handlePageHide = () => cleanup();
+
+        const cleanup = () => {
+            if (cleanupCalled) {
+                return;
+            }
+            cleanupCalled = true;
+            observer.disconnect();
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            video.removeEventListener('ended', handleVideoEnded);
+            window.removeEventListener('pagehide', handlePageHide);
+            delete video.dataset.autoplayManaged;
+            delete video._autoplayCleanup;
+        };
+
+        window.addEventListener('pagehide', handlePageHide, { once: true });
+
+        video._autoplayCleanup = cleanup;
+    }
+
     function applyInteractionMode({ scope = document, force = false } = {}) {
         const nextReduce = shouldReduceMotion();
         const nextLightweight = shouldUseLightweightMode();
@@ -1038,6 +1143,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         initializeInteractiveDecorations(scope);
         initializeScrollAnimations(scope);
+        setupVideoAutoplay({ scope });
 
         if (!isLightweightMode() && !isReduceMotion()) {
             initializeAmbientPointer();

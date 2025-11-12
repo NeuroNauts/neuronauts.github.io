@@ -13,9 +13,9 @@ body {
     --pointer-x: 50%;
     --pointer-y: 50%;
     --scroll-depth: 0;
-    --scene-color-1: 236, 72, 153;
-    --scene-color-2: 59, 130, 246;
-    --scene-color-3: 192, 132, 252;
+    --scene-color-1: 79, 127, 204;
+    --scene-color-2: 37, 99, 235;
+    --scene-color-3: 147, 197, 253;
     --scene-progress: 0;
 }
 
@@ -59,11 +59,11 @@ body::before {
     content: '';
     position: fixed;
     inset: -20%;
-    background: radial-gradient(circle at 20% 20%, rgba(var(--scene-color-1), 0.24), transparent 55%),
-        radial-gradient(circle at 80% 30%, rgba(var(--scene-color-2), 0.2), transparent 60%),
-        radial-gradient(circle at 50% 80%, rgba(var(--scene-color-3), 0.18), transparent 65%);
-    filter: blur(120px);
-    opacity: 0.55;
+    background: radial-gradient(circle at 20% 20%, rgba(var(--scene-color-1), 0.18), transparent 55%),
+        radial-gradient(circle at 80% 30%, rgba(var(--scene-color-2), 0.14), transparent 60%),
+        radial-gradient(circle at 50% 80%, rgba(var(--scene-color-3), 0.12), transparent 65%);
+    filter: blur(90px);
+    opacity: 0.48;
     z-index: -2;
     pointer-events: none;
     animation: auroraFlow 22s ease-in-out infinite alternate;
@@ -75,8 +75,8 @@ body::after {
     inset: -25%;
     background: radial-gradient(
         circle at var(--pointer-x) var(--pointer-y),
-        rgba(var(--scene-color-1), 0.28),
-        rgba(var(--scene-color-2), 0.22) 28%,
+        rgba(var(--scene-color-1), 0.2),
+        rgba(var(--scene-color-2), 0.18) 28%,
         transparent 60%
     );
     opacity: 0;
@@ -87,7 +87,7 @@ body::after {
 }
 
 body.pointer-active::after {
-    opacity: 0.55;
+    opacity: 0.42;
 }
 
 @keyframes auroraFlow {
@@ -125,8 +125,8 @@ body > *:not(.parallax-canvas) {
     position: absolute;
     inset: -25%;
     mix-blend-mode: screen;
-    opacity: 0.52;
-    filter: blur(140px);
+    opacity: 0.44;
+    filter: blur(110px);
     transform: translate3d(
             calc((var(--pointer-x) - 50%) / 6),
             calc((var(--pointer-y) - 50%) / 9 - var(--scroll-depth) * 30px),
@@ -137,19 +137,19 @@ body > *:not(.parallax-canvas) {
 }
 
 .parallax-layer--base {
-    background: radial-gradient(circle at 25% 25%, rgba(var(--scene-color-1), 0.28), transparent 65%),
-        radial-gradient(circle at 75% 40%, rgba(var(--scene-color-2), 0.22), transparent 70%);
+    background: radial-gradient(circle at 25% 25%, rgba(var(--scene-color-1), 0.18), transparent 65%),
+        radial-gradient(circle at 75% 40%, rgba(var(--scene-color-2), 0.14), transparent 70%);
 }
 
 .parallax-layer--accent {
     background: conic-gradient(
         from calc(var(--scene-progress) * 360deg),
-        rgba(var(--scene-color-2), 0.18),
-        rgba(var(--scene-color-3), 0.2),
-        rgba(var(--scene-color-1), 0.16),
-        rgba(var(--scene-color-2), 0.18)
+        rgba(var(--scene-color-2), 0.12),
+        rgba(var(--scene-color-3), 0.16),
+        rgba(var(--scene-color-1), 0.1),
+        rgba(var(--scene-color-2), 0.12)
     );
-    opacity: 0.34;
+    opacity: 0.26;
     transform: translate3d(
             calc((var(--pointer-x) - 50%) / -8),
             calc((var(--pointer-y) - 50%) / 12 + var(--scroll-depth) * 18px),
@@ -160,26 +160,26 @@ body > *:not(.parallax-canvas) {
 
 .parallax-layer--spark {
     inset: -30%;
-    opacity: 0.3;
-    filter: blur(80px);
-    background: radial-gradient(circle at 40% 60%, rgba(var(--scene-color-3), 0.28), transparent 62%),
-        radial-gradient(circle at 70% 30%, rgba(var(--scene-color-1), 0.22), transparent 68%),
-        radial-gradient(circle at 30% 20%, rgba(var(--scene-color-2), 0.16), transparent 70%);
+    opacity: 0.26;
+    filter: blur(64px);
+    background: radial-gradient(circle at 40% 60%, rgba(var(--scene-color-3), 0.2), transparent 62%),
+        radial-gradient(circle at 70% 30%, rgba(var(--scene-color-1), 0.14), transparent 68%),
+        radial-gradient(circle at 30% 20%, rgba(var(--scene-color-2), 0.12), transparent 70%);
     animation: parallaxSpark 18s ease-in-out infinite;
 }
 
 @keyframes parallaxSpark {
     0% {
         transform: scale(0.95) rotate(0deg);
-        opacity: 0.32;
+        opacity: 0.26;
     }
     50% {
         transform: scale(1.08) rotate(180deg);
-        opacity: 0.45;
+        opacity: 0.34;
     }
     100% {
         transform: scale(0.98) rotate(360deg);
-        opacity: 0.3;
+        opacity: 0.24;
     }
 }
 
@@ -467,20 +467,20 @@ footer .page-link:focus-visible {
     --scroll-animate-skew: 0deg;
     --scroll-animate-origin: 50% 50%;
     transform-origin: var(--scroll-animate-origin, 50% 50%);
-    transform: perspective(900px)
-        translate3d(var(--scroll-animate-x, 0), var(--scroll-animate-y, 30px), 0)
+    transform: translate3d(var(--scroll-animate-x, 0), var(--scroll-animate-y, 30px), 0)
         scale(var(--scroll-animate-scale, 0.96)) rotate(var(--scroll-animate-rotate))
         skewX(var(--scroll-animate-skew));
     transition-property: opacity, transform;
-    transition-duration: 0.85s;
+    transition-duration: 0.75s;
     transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
     transition-delay: var(--scroll-animate-delay, 0ms);
+    backface-visibility: hidden;
     will-change: opacity, transform;
 }
 
 .scroll-animate.is-visible {
     opacity: 1;
-    transform: perspective(900px) translate3d(0, 0, 0) scale(1) rotate(0deg) skewX(0deg);
+    transform: translate3d(0, 0, 0) scale(1) rotate(0deg) skewX(0deg);
 }
 
 .scroll-animate--fade-up {
@@ -528,6 +528,80 @@ footer .page-link:focus-visible {
     --scroll-animate-origin: 48% 90%;
 }
 
+.collaborations-section .collaboration-card {
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.collaborations-section .collaboration-card:hover,
+.collaborations-section .collaboration-card:focus-within {
+    border-color: rgba(148, 163, 184, 0.45);
+    box-shadow: 0 16px 30px -22px rgba(148, 163, 184, 0.55);
+}
+
+.goals-section {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.92), rgba(30, 41, 59, 0.85));
+    border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.goals-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .goals-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.goal-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: 1rem;
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.goal-card:hover,
+.goal-card:focus-within {
+    border-color: rgba(96, 165, 250, 0.4);
+    background: rgba(30, 41, 59, 0.5);
+    box-shadow: 0 18px 32px -26px rgba(96, 165, 250, 0.55);
+}
+
+.goal-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    background: rgba(96, 165, 250, 0.16);
+    color: #bfdbfe;
+    flex-shrink: 0;
+    box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.3);
+}
+
+.goal-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.goal-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #dbeafe;
+    margin-bottom: 0.35rem;
+}
+
+.goal-text {
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
 @media (prefers-reduced-motion: reduce) {
     .scroll-animate {
         transition: none !important;
@@ -544,12 +618,17 @@ footer .page-link:focus-visible {
         animation: none !important;
         opacity: 0 !important;
     }
+    .animate-blob {
+        animation: none !important;
+    }
     .navbar-link,
     #mobile-menu-overlay .page-link,
     footer .page-link,
     .glow-button,
     .social-links-container a,
-    .slider-nav button {
+    .slider-nav button,
+    .collaborations-section .collaboration-card,
+    .goal-card {
         animation: none !important;
         transform: none !important;
         transition-duration: 0.2s !important;
