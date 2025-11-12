@@ -6,6 +6,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const networkInformation =
         navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+    const enableDynamicNavigation = Boolean(
+        contentArea && contentArea.hasAttribute('data-dynamic-navigation'),
+    );
+
+    if (enableDynamicNavigation && 'scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
+
+    if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+    }
 
     const shouldReduceMotion = () => {
         if (prefersReducedMotion.matches) {
@@ -45,29 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const colorProperties = ['--scene-color-1', '--scene-color-2', '--scene-color-3'];
     const parallaxPalettes = [
         [
-            [236, 72, 153],
-            [59, 130, 246],
-            [192, 132, 252],
+            [37, 99, 235],
+            [12, 74, 110],
+            [96, 165, 250],
         ],
         [
-            [14, 165, 233],
-            [99, 102, 241],
-            [192, 132, 252],
+            [30, 64, 175],
+            [17, 94, 120],
+            [80, 130, 214],
         ],
         [
-            [244, 114, 182],
-            [129, 140, 248],
-            [56, 189, 248],
-        ],
-        [
-            [34, 197, 94],
-            [16, 185, 129],
-            [59, 130, 246],
-        ],
-        [
-            [250, 204, 21],
-            [249, 115, 22],
-            [236, 72, 153],
+            [24, 78, 174],
+            [20, 83, 136],
+            [125, 211, 252],
         ],
     ];
     let currentSceneColors = parallaxPalettes[0].map((color) => [...color]);
@@ -857,8 +858,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             },
             {
-                threshold: 0.25,
-                rootMargin: '0px 0px -10%',
+                threshold: 0.18,
+                rootMargin: '0px 0px -8% 0px',
             },
         );
 
@@ -1419,9 +1420,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     };
 
+    const resetScrollPosition = () => {
+        if (typeof window.scrollTo === 'function') {
+            window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        }
+    };
+
     document.body.addEventListener('click', (e) => {
         const link = e.target.closest('.page-link');
         if (!link) {
+            return;
+        }
+
+        if (!enableDynamicNavigation) {
+            closeMobileMenu();
             return;
         }
 
@@ -1430,13 +1442,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         closeMobileMenu();
 
+        resetScrollPosition();
+
         history.pushState(null, '', targetUrl);
         loadContent(targetUrl);
     });
 
-    window.addEventListener('popstate', () => {
-        loadContent(window.location.href);
-    });
+    if (enableDynamicNavigation) {
+        window.addEventListener('popstate', () => {
+            resetScrollPosition();
+            loadContent(window.location.href);
+        });
+    }
 
     if (mobileMenuButton) {
         mobileMenuButton.addEventListener('click', () => {
