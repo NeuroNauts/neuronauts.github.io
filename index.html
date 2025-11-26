@@ -4,181 +4,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="1; url=http://neuronauts.tr"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Neuronauts</title>
+    <title>Neuronauts - Alan Adı Güncellemesi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="antialiased flex flex-col min-h-screen home-page">
-    <nav id="navbar" class="p-6 md:p-8 flex justify-between items-center relative z-10">
-        <div class="flex items-center space-x-2">
-
-            <a href="index.html" class="text-2xl font-bold text-white page-link" data-target="home-content">
-                <img id="main-logo" src="görseller/logo-04.png" alt="Neuronauts Logo" class="h-8 md:h-10" loading="eager" decoding="async">
-            </a>
-        </div>
-        <div class="hidden md:flex space-x-8">
-            <a href="index.html" class="navbar-link page-link" data-target="home-content">Anasayfa</a>
-            <a href="about.html" class="navbar-link page-link" data-target="about-content">Hakkımızda</a>
-
-            <a href="projects.html" class="navbar-link page-link" data-target="projects-content">Projelerimiz</a>
-            <a href="competitions.html" class="navbar-link page-link" data-target="competitions-content">Yarışmalar</a>
-            <a href="yapılacakprojeler.html" class="navbar-link page-link"
-                data-target="yapilacakprojeler-content">Hedeflerimiz</a>
-            <a href="events.html" class="navbar-link page-link" data-target="events-content">Etkinlikler</a>
-            <!-- Etkinlikler linki eklendi -->
-            <a href="contact.html" class="navbar-link page-link" data-target="contact-content">İletişim</a>
-        </div>
-        <div class="md:hidden">
-            <button id="mobile-menu-button" class="text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
-                    </path>
-                </svg>
-            </button>
-        </div>
-    </nav>
-
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 bg-gray-900 bg-opacity-95 z-20 flex-col items-center justify-center space-y-8 text-2xl hidden">
-        <a href="index.html" class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="home-content">Anasayfa</a>
-        <a href="about.html" class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="about-content">Hakkımızda</a>
-
-        <a href="projects.html" class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="projects-content">Projelerimiz</a>
-        <a href="competitions.html" class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="competitions-content">Yarışmalar</a>
-        <a href="yapılacakprojeler.html"
-            class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="yapilacakprojeler-content">Hedeflerimiz</a>
-        <a href="events.html" class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="events-content">Etkinlikler</a> <!-- Etkinlikler linki eklendi -->
-        <a href="contact.html" class="text-white hover:text-purple-300 transition-colors duration-300 page-link"
-            data-target="contact-content">İletişim</a>
-        <button id="close-mobile-menu" class="absolute top-6 right-6 text-white focus:outline-none">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-    </div>
-
+<body class="antialiased flex flex-col min-h-screen items-center justify-center bg-gray-900 text-white">
+    
     <main id="content-area"
         class="flex-grow flex flex-col items-center justify-center text-center px-4 py-16 relative transition-opacity duration-500 ease-in-out">
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8">
-            <span id="typing-text" class="has-cursor neon-text"></span> <!-- has-cursor sınıfı eklendi -->
+        
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
+            Domainimiz Güncellendi! 🚀
         </h1>
-        <a href="contact.html"
-            class="bg-purple-700 hover:bg-purple-800 text-white font-semibold py-3 px-8 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-purple-500 focus:ring-opacity-50 page-link glow-button"
-            data-target="events-content">
-            Bize Ulaş!
-        </a> <!-- Buton href'i events.html olarak güncellendi -->
+        <p class="text-xl md:text-2xl mb-8">
+            Neuronauts artık **neuronauts.tr** adresinde.
+        </p>
+        <p class="text-lg md:text-xl text-purple-300">
+            **1 saniye** içinde otomatik olarak yeni sitemize yönlendirileceksiniz.
+        </p>
+        <p class="mt-4">
+            Hemen gitmek için lütfen <a href="http://neuronauts.tr" class="text-purple-500 hover:text-purple-400 font-semibold underline transition-colors duration-300">buraya tıklayın</a>.
+        </p>
 
         <div
             class="absolute bottom-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-orange-500 opacity-30 rounded-full filter blur-3xl animate-blob">
         </div>
     </main>
 
-    <footer class="p-6 md:p-10 bg-gray-900 bg-opacity-50 mt-auto relative z-10">
-        <div
-            class="container mx-auto flex flex-col md:flex-row justify-between items-start md:items-start space-y-8 md:space-y-0">
-
-            <!-- Logo & Sosyal -->
-            <div class="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
-                <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <img id="c" src="görseller/logo-04.png" alt="Neuronauts Logo" class="h-10" loading="eager" decoding="async">
-                </div>
-
-                <!-- Mail -->
-                <p class="text-gray-400">
-                    <a href="mailto:bilgi@neuronauts.tech" class="hover:text-white transition-colors duration-300">
-                        bilgi@neuronauts.tech
-                    </a>
-                </p>
-
-                <!-- Sosyal Medya -->
-                <div class="flex space-x-4 mt-2 social-links-container">
-                    <a href="https://www.linkedin.com/company/neuronauts-ai-team/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="LinkedIn">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.791-1.75-1.764s.784-1.764 1.75-1.764 1.75.791 1.75 1.764-.784 1.764-1.75 1.764zm13.5 11.268h-3v-5.604c0-1.337-.026-3.064-1.867-3.064-1.867 0-2.154 1.459-2.154 2.968v5.7h-3v-10h2.881v1.367h.041c.401-.758 1.379-1.555 2.841-1.555 3.038 0 3.601 2.001 3.601 4.604v5.584z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.instagram.com/neuronauts.ai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="Instagram">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M7.917 2h8.166C19.148 2 22 4.852 22 8.083v8.166C22 19.148 19.148 22 15.917 22H7.917C4.852 22 2 19.148 2 15.917V7.917C2 4.852 4.852 2 7.917 2zm0 2C6.12 4 4 6.12 4 7.917v8.166C4 17.88 6.12 20 7.917 20h8.166C17.88 20 20 17.88 20 16.083V7.917C20 6.12 17.88 4 16.083 4H7.917zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zM18 5.5a1.5 1.5 0 100 3 1.5 1.5 0 000-3z" />
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@neuronautsai" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors duration-300" aria-label="YouTube">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M23.498 6.186a2.994 2.994 0 00-2.112-2.117C19.75 3.5 12 3.5 12 3.5s-7.75 0-9.386.569a2.994 2.994 0 00-2.112 2.117A31.86 31.86 0 000 12a31.86 31.86 0 00.502 5.814 2.994 2.994 0 002.112 2.117C4.25 20.5 12 20.5 12 20.5s7.75 0 9.386-.569a2.994 2.994 0 002.112-2.117A31.86 31.86 0 0024 12a31.86 31.86 0 00-.502-5.814zM9.545 15.568V8.432L16.818 12l-7.273 3.568z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-
-
-            <!-- Menüler -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-8 text-left">
-                <div>
-                    <h3 class="font-semibold text-white mb-3"><a href="about.html" class="page-link"
-                            data-target="about-content">Hakkımızda</a></h3>
-                </div>
-
-                <div>
-                    <h3 class="font-semibold text-white mb-3"><a href="projects.html" class="page-link"
-                            data-target="projects-content">Projelerimiz</a></h3>
-                </div>
-
-                <div>
-                    <h3 class="font-semibold text-white mb-3"><a href="competitions.html" class="page-link"
-                            data-target="competitions-content">Yarışmalar</a></h3>
-                </div>
-
-                <div>
-                    <h3 class="font-semibold text-white mb-3"><a href="events.html" class="page-link"
-                            data-target="events-content">Etkinlikler</a></h3>
-                </div>
-
-                <div>
-                    <h3 class="font-semibold text-white mb-3"><a href="contact.html" class="page-link"
-                            data-target="contact-content">İletişim</a></h3>
-                </div>
-                <div>
-                    <h3 class="font-semibold text-white mb-3"><a href="yapılacakprojeler.html" class="page-link"
-                            data-target="yapilacakprojeler-content">Hedeflerimiz</a></h3>
-                </div>
-
-
-            </div>
-
-            <div class="w-full md:w-1/3 lg:w-1/4 flex justify-center md:justify-end">
-                <div class="relative w-full max-w-sm rounded-xl overflow-hidden map-container">
-                    <iframe
-                        src="https://maps.google.com/maps?q=Binbirdirek,+Peykhane+Cd.+No:2,+Fatih/İstanbul&output=embed"
-                        width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade" class="rounded-xl"></iframe>
-                    <div class="absolute bottom-0 left-0 right-0 bg-gray-900 bg-opacity-70 p-3 text-sm text-gray-200">
-                        <p>Binbirdirek, Peykhane Cd.</p>
-                        <p>No:2, Fatih/İstanbul</p>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-        </div>
-    </footer>
-
-
-    <script src="script.js" defer></script>
 </body>
 
 </html>
