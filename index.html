@@ -4,38 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="1; url=http://neuronauts.tr"> 
+    <meta http-equiv="refresh" content="1; url=https://www.instagram.com/ethosai.team/"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Neuronauts - Alan Adı Güncellemesi</title>
+    <title>Ethos - Marka Güncellemesi</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .animate-blob { animation: blob 7s infinite; }
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+    </style>
 </head>
 
-<body class="antialiased flex flex-col min-h-screen items-center justify-center bg-gray-900 text-white">
+<body class="antialiased flex flex-col min-h-screen items-center justify-center bg-gray-900 text-white overflow-hidden">
     
     <main id="content-area"
-        class="flex-grow flex flex-col items-center justify-center text-center px-4 py-16 relative transition-opacity duration-500 ease-in-out">
+        class="flex-grow flex flex-col items-center justify-center text-center px-4 py-16 relative z-10">
         
-        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4">
-            Domainimiz Güncellendi! 🚀
+        <div class="mb-8 transition-transform duration-500 hover:scale-105">
+            <img src="https://instagram.fist6-1.fna.fbcdn.net/v/t51.2885-19/554774522_17847516075571210_6194607909209128213_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMxIn0&_nc_ht=instagram.fist6-1.fna.fbcdn.net&_nc_cat=110&_nc_oc=Q6cZ2QHxE1VUDIR3jYnZ2DvYF5QVx9a3gemhHGk4Jf1gNY-7SuGwe4mstOlhgajDaPqaFyYOAnaD6uzfya24JE1HqCSI&_nc_ohc=AmiDyvd2bPcQ7kNvwG5ukiP&_nc_gid=sZMuBi--v2QoME5CWJR4rA&edm=ALGbJPMBAAAA&ccb=7-5&oh=00_AflU-kHKebzYXJMbzV5onnnuB5FX-7dIRerJUbrC7126wQ&oe=695753C0&_nc_sid=7d3ac5" 
+                 alt="Ethos Logo" 
+                 class="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-purple-500 shadow-2xl object-cover">
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-4 tracking-tight">
+            Neuronauts Artık <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">Ethos</span> Oldu!
         </h1>
-        <p class="text-xl md:text-2xl mb-8">
-            Neuronauts artık **neuronauts.tr** adresinde.
+        
+        <p class="text-xl md:text-2xl mb-8 text-gray-300">
+            Yolculuğumuza yeni ismimiz ve vizyonumuzla devam ediyoruz.
         </p>
-        <p class="text-lg md:text-xl text-purple-300">
-            **1 saniye** içinde otomatik olarak yeni sitemize yönlendirileceksiniz.
+        
+        <p class="text-lg md:text-xl text-purple-300 animate-pulse">
+            Otomatik olarak Instagram sayfamıza yönlendiriliyorsunuz...
         </p>
-        <p class="mt-4">
-            Hemen gitmek için lütfen <a href="http://neuronauts.tr" class="text-purple-500 hover:text-purple-400 font-semibold underline transition-colors duration-300">buraya tıklayın</a>.
+        
+        <p class="mt-8">
+            Yönlendirme gerçekleşmediyse lütfen 
+            <a href="https://www.instagram.com/ethosai.team/" class="text-purple-500 hover:text-purple-400 font-semibold underline transition-colors duration-300">
+                buraya tıklayın
+            </a>.
         </p>
 
-        <div
-            class="absolute bottom-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-orange-500 opacity-30 rounded-full filter blur-3xl animate-blob">
-        </div>
+        <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 md:w-96 md:h-96 bg-purple-600 opacity-20 rounded-full filter blur-[100px] animate-blob"></div>
     </main>
 
 </body>
-
 </html>
